@@ -43,25 +43,26 @@ class App extends React.Component {
     });
   };
 
-    toggleTask = (e,selectedId) =>{
+    toggleTask = (selectedId) =>{
         this.setState({
-            todos: this.state.todos.map(( task ) =>{
-                if(selectedId === task.id)
+            todos: this.state.todos.map( task  =>{
+                if(selectedId === task.id){
                 return {
                     ...task,
                     completed: !task.completed
                 }
-                return task
+                }
+                return task;
             })
         })
     }
-
 
     clearTask = ( e ) =>{
         e.preventDefault();
         this.setState({
             todos: this.state.todos.filter(t => !t.completed)
         })
+        
     }
 
   render() {
